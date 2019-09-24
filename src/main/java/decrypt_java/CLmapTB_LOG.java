@@ -38,9 +38,10 @@ public class CLmapTB_LOG {
 		this.rq_sql = rq_sql;
 	}
 	
-	public String m_select(String requete)
+	public void m_select(String requete)
 	{
-		return requete;
+		CLcad select = new CLcad();
+		select.m_getRows(requete);
 	}
 	
 	public void m_insert(String requete)

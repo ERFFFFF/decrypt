@@ -34,7 +34,7 @@ public class CLcad {
 		}
 	}
 	
-	public ResultSet m_getRows(String requete)
+	public void m_getRows(String requete)
 	{
 		try {
 			stmt = con.createStatement();
@@ -48,7 +48,6 @@ public class CLcad {
 			// TODO: handle exception
 			exc.printStackTrace();
 		}
-		return rs;
 	}
 	public void m_actionRows(String requete)
 	{
