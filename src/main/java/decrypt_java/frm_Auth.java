@@ -24,13 +24,14 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 
 
-public class ViewFenetreAuth extends JFrame implements ActionListener {
+public class frm_Auth extends JFrame implements ActionListener {
 
 	// Content pane principal
 	private JPanel pan = new JPanel();
 
 	// Chemin d'acces au fichier 
 	private static String CHEMIN_FICHIER = null;
+	private static String KEY = "key";
 
 	private JTextField textField;
 	private JLabel identifiant = new JLabel("Identifiant :");
@@ -40,8 +41,8 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 	private final JLabel lblAuthentification = new JLabel("Authentification");
 	private final JLabel lblResult = new JLabel("");
 
-	public ViewFenetreAuth() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewFenetreAuth.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
+	public frm_Auth() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(frm_Auth.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
 
 		// Parametres de la fenetre
 		this.setResizable(false);
@@ -85,13 +86,13 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnValider) {
 			// Lorsque l'on clique sur le bouton Valider
-			CHEMIN_FICHIER = FileChooser.getfilePath();
+			CHEMIN_FICHIER = frm_decrypt.getfilePath();
 			String message;
 			try {
 				message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
-				String messageCrypt = CLctrlCrypt.crypter(message, "key");
+				String messageCrypt = CLctrlCrypt.crypter(message, KEY);
 				lblResult.setText(message);
-				String chemin_save = Sauvegarde.getfilePath();
+				String chemin_save = frm_decrypt.getfilePathSave();
 				CLctrlCrypt.ecrireFichierSimple(chemin_save, messageCrypt);
 			} catch (Exception e) {
 				e.printStackTrace();
