@@ -4,7 +4,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        bdd.bdd("projet_decrypt", "root", "test123*");
+        //bdd.bdd("projet_decrypt", "root", "test123*");
     }
     
 }
