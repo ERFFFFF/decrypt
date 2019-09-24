@@ -10,7 +10,7 @@ public class App
     {
         System.out.println( "Hello World!" );
         
-        bdd.bddmsg();
+        bdd.bdd();
     }
     
 }
