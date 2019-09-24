@@ -3,13 +3,12 @@ import java.sql.*;
 
 public class bdd
 {	
-	public static void bdd()
+	public static void bdd(String projet_decrypt, String login, String password)
 	{
 		try {
-			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_decrypt?serverTimezone=UTC", "root", "test123*");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + projet_decrypt + "?serverTimezone=UTC", login, password);
 			Statement myStmt = connect.createStatement();
 			ResultSet myRequest = myStmt.executeQuery("select * from log");
-			
 			while (myRequest.next()) {
 				System.out.println(myRequest.getString("id") + ", " + myRequest.getString("username") + ", " + myRequest.getString("password"));
 			}
