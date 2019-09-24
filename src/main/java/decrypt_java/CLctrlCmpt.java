@@ -51,10 +51,13 @@ public class CLctrlCmpt {
 		Boolean boo = false;
 		try {
 			stmt = con.createStatement();
-			String sql = "select 1 where login='" + login + "' and motdepasse='" + mdp + "'";
+			String sql = "select 1 from log where username='" + login + "' and password='" + mdp + "'";
+			System.out.println(sql);
 			rs = stmt.executeQuery(sql);
+			//System.out.println(rs.getString("username"));
 			if (rs.next()) {
 				boo = true;
+				System.out.println("kokok");
 			} 
 		} catch (Exception exc) {
 			// TODO: handle exception
