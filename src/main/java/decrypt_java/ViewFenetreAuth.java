@@ -29,36 +29,25 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 	// Content pane principal
 	private JPanel pan = new JPanel();
 
-	// Chemin d'accs au fichier excel
+	// Chemin d'acces au fichier 
 	private static String CHEMIN_FICHIER = null;
 
-	// Enseignant choisi
-	private String profChoisi = null;
 	private JTextField textField;
-	
 	private JLabel identifiant = new JLabel("Identifiant :");
-	
 	private JLabel mdp = new JLabel("Mot de passe :");
 	private final JTextField textField_1 = new JTextField();
 	private final JButton btnValider = new JButton("Valider");
 	private final JLabel lblAuthentification = new JLabel("Authentification");
 	private final JLabel lblResult = new JLabel("");
-	
-	public static void main(String[] args) {
-
-		// Cre une fentre
-		ViewFenetreAuth fen = new ViewFenetreAuth();
-
-	}
 
 	public ViewFenetreAuth() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewFenetreAuth.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
 
-		// Paramtres de la fentre
+		// Parametres de la fenetre
 		this.setResizable(false);
-		// Dfinit un titre
+		// Definit un titre
 		this.setTitle("MadMax");
-		// Dfinit sa taille
+		// Definit sa taille
 		this.setBounds(100, 100, 461, 238);
 		// Positionne la this au centre
 		this.setLocationRelativeTo(null);
@@ -66,17 +55,15 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pan.setLayout(new MigLayout("", "[146px][12px][103px][22px][95px]", "[35px][25px][22px][25px][][]"));
 		this.setContentPane(pan);
+		
+		// Ajouts au content pane	
 		lblAuthentification.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		
 		pan.add(lblAuthentification, "cell 2 0");
-		
-		// Ajouts au content pane
+	
 		identifiant.setHorizontalAlignment(SwingConstants.LEFT);
 		identifiant.setForeground(SystemColor.desktop);
 		identifiant.setFont(new Font("Arial", Font.BOLD, 14));
 		pan.add(identifiant, "cell 0 2,alignx left,aligny center");
-		
-		
 		
 		textField = new JTextField();
 		pan.add(textField, "cell 2 2");
@@ -89,21 +76,15 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 		textField_1.setColumns(10);
 		
 		pan.add(textField_1, "cell 2 3");
-		
 		pan.add(lblResult, "cell 2 4");
-		
 		pan.add(btnValider, "cell 2 5");
-		
 		btnValider.addActionListener(this);
-		// La rend visible
 		this.setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
-
 		if (arg0.getSource() == btnValider) {
-
-			// Lorsque l'on clique sur le bouton Parcourir
+			// Lorsque l'on clique sur le bouton Valider
 			CHEMIN_FICHIER = FileChooser.getfilePath();
 			String message;
 			try {
@@ -115,14 +96,6 @@ public class ViewFenetreAuth extends JFrame implements ActionListener {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//		} else if (arg0.getSource() == btnValider) {
-//			
-//			try {
-//				lec.write(profChoisi);
-//			} catch (Exception e) {
-//				JOptionPane.showMessageDialog(null, "Aucun fichier s�l�ctionn�");
-//				e.printStackTrace();
-//			}
 		}
 
 	}
