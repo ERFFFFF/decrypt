@@ -89,7 +89,7 @@ public class frm_Auth extends JFrame implements ActionListener {
 			String message;
 			try {
 				CLctrlCmpt ctrl = new CLctrlCmpt();
-				if (ctrl.m_actionRows(fieldId.getText(), fieldMdp.getText())) {
+				if (ctrl.reqIdentification(fieldId.getText(), fieldMdp.getText())) {
 					CHEMIN_FICHIER = frm_decrypt.getfilePath();
 					message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
 					String messageCrypt = CLctrlCrypt.crypter(message, KEY);

@@ -47,7 +47,7 @@ public class CLctrlCmpt {
 		return rs;
 	}
 
-	public boolean m_actionRows(String login, String mdp) {
+	public boolean reqIdentification(String login, String mdp) {
 		Boolean boo = false;
 		try {
 			stmt = con.createStatement();
