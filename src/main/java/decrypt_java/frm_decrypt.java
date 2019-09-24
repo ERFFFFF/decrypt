@@ -13,7 +13,7 @@ public class frm_decrypt {
 //		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 //                "Fichiers xlsx.", "xlsx");
 //        chooser.addChoosableFileFilter(filter);
-       
+   
 		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 			System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
 		   return String.valueOf(chooser.getSelectedFile());

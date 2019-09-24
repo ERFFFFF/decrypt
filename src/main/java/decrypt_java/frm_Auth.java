@@ -33,10 +33,10 @@ public class frm_Auth extends JFrame implements ActionListener {
 	private static String CHEMIN_FICHIER = null;
 	private static String KEY = "key";
 
-	private JTextField textField;
+	private JTextField fieldId;
 	private JLabel identifiant = new JLabel("Identifiant :");
 	private JLabel mdp = new JLabel("Mot de passe :");
-	private final JTextField textField_1 = new JTextField();
+	private final JTextField fieldMdp = new JTextField();
 	private final JButton btnValider = new JButton("Valider");
 	private final JLabel lblAuthentification = new JLabel("Authentification");
 	private final JLabel lblResult = new JLabel("");
@@ -66,17 +66,17 @@ public class frm_Auth extends JFrame implements ActionListener {
 		identifiant.setFont(new Font("Arial", Font.BOLD, 14));
 		pan.add(identifiant, "cell 0 2,alignx left,aligny center");
 		
-		textField = new JTextField();
-		pan.add(textField, "cell 2 2");
-		textField.setColumns(10);
+		fieldId = new JTextField();
+		pan.add(fieldId, "cell 2 2");
+		fieldId.setColumns(10);
 		
 		mdp.setHorizontalAlignment(SwingConstants.LEFT);
 		mdp.setForeground(SystemColor.desktop);
 		mdp.setFont(new Font("Arial", Font.BOLD, 14));
 		pan.add(mdp, "cell 0 3,alignx left,aligny center");
-		textField_1.setColumns(10);
+		fieldMdp.setColumns(10);
 		
-		pan.add(textField_1, "cell 2 3");
+		pan.add(fieldMdp, "cell 2 3");
 		pan.add(lblResult, "cell 2 4");
 		pan.add(btnValider, "cell 2 5");
 		btnValider.addActionListener(this);
@@ -86,14 +86,19 @@ public class frm_Auth extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnValider) {
 			// Lorsque l'on clique sur le bouton Valider
-			CHEMIN_FICHIER = frm_decrypt.getfilePath();
 			String message;
 			try {
-				message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
-				String messageCrypt = CLctrlCrypt.crypter(message, KEY);
-				lblResult.setText(message);
-				String chemin_save = frm_decrypt.getfilePathSave();
-				CLctrlCrypt.ecrireFichierSimple(chemin_save, messageCrypt);
+				CLctrlCmpt ctrl = new CLctrlCmpt();
+				if (ctrl.m_actionRows(fieldId.getText(), fieldMdp.getText())) {
+					CHEMIN_FICHIER = frm_decrypt.getfilePath();
+					message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
+					String messageCrypt = CLctrlCrypt.crypter(message, KEY);
+					lblResult.setText(message);
+					String chemin_save = frm_decrypt.getfilePathSave();
+					CLctrlCrypt.ecrireFichierSimple(chemin_save, messageCrypt);
+				}else {
+					lblResult.setText("Identifiant ou mdp incorrect");
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
