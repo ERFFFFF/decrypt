@@ -26,7 +26,7 @@ public class CLcad {
 		    e.printStackTrace();
 		} 
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_decrypt?serverTimezone=UTC", "root", "test123*");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_seminaire?serverTimezone=UTC", "root", "root");
 		}
 		catch (Exception exc) {
 			// TODO: handle exception
