@@ -2,6 +2,7 @@ package decrypt_java;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,21 +35,25 @@ public class CLcad {
 		}
 	}
 	
-	public ResultSet m_getRows(String requete)
+	public void m_getRows()
 	{
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(requete);
 			
-			while (rs.next()) {
-				System.out.println(rs.getString("id") + ", " + rs.getString("username") + ", " + rs.getString("password"));
+			PreparedStatement user = con.prepareStatement("SELECT * FROM log WHERE username = ? AND password = ?");
+			
+			user.setString(1, "gamerz");
+			user.setString(2, "kek123");
+			
+			ResultSet resultats = user.executeQuery();
+			
+			while (resultats.next()) {
+				System.out.println(resultats.getString("username") + ", " + resultats.getString("password"));
 			}
 		}
 		catch (Exception exc) {
 			// TODO: handle exception
 			exc.printStackTrace();
 		}
-		return rs;
 	}
 	public void m_actionRows(String requete)
 	{

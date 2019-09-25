@@ -7,7 +7,8 @@ public class MainEntry {
 		//CLcad bdd = new CLcad();
 		CLmapTB_LOG obj1 = new CLmapTB_LOG();
 		
-		
+		CLcad ob = new CLcad();
+		ob.m_getRows();
 		//CLcad select = new CLcad();
 		//select.m_getRows(requete);
 		
