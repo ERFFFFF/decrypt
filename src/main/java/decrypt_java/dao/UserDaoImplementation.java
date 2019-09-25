@@ -29,7 +29,38 @@ public class UserDaoImplementation extends SqlUtil implements IUserDao {
 	 * @see decrypt_java.UserDao#createUser(java.lang.String, java.lang.String)
 	 */
 	public User addRow(String login, String password) {
-		return ConnectedUser;
+		
+		CallableStatement cs = null;
+		try {
+			cs = this.getConnectionToUse().prepareCall("{call stored_login_procedure(?,?)}");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			cs.setString(1, login);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			cs.setString(2, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			
+			int rs = cs.executeUpdate();
+			
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return createUserFromString(login, password);
 
 	}
 
@@ -94,7 +125,14 @@ public class UserDaoImplementation extends SqlUtil implements IUserDao {
 		return this.getConnectedUser();
 
 	}
-
+	
+	
+	private User createUserFromString(String login, String password) {
+		
+		return new User(login,password);
+	}
+	
+	
 	public User getConnectedUser() {
 		return ConnectedUser;
 	}

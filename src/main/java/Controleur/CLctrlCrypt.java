@@ -1,17 +1,8 @@
 package Controleur;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import Model.AccesDonnees;
 import Model.Decrypt;
 import Model.Files;
 import decrypt_java.model.Dictionary;
@@ -36,8 +27,9 @@ public class CLctrlCrypt {
 		//Verifie le mot dans le dictionnaire
 		
 		
-		if (!(dictionaryService.findWord("pilote") instanceof Dictionary)) return false;
+		if (!(dictionaryService.findWord(reponse) instanceof Dictionary)) return false;
 		
+		if (!(dictionaryService.findWord(reponse) instanceof Dictionary)) System.out.println("mot inconnu");
 
 		// Creer le fichier
 		Files.setData(destination_path, message);

@@ -5,9 +5,16 @@ public class User {
 	private Integer id;
 	private String login;
 	private String password;
+
 	
 	public User() {
-		
+	
+	}
+
+
+	public User(String login, String password) {
+		this.login = login;
+		this.password = password;
 	}
 
 	/**
@@ -18,7 +25,8 @@ public class User {
 	}
 
 	/**
-	 * @param login the login to set
+	 * @param login
+	 *            the login to set
 	 */
 	public void setLogin(String login) {
 		this.login = login;
@@ -32,7 +40,8 @@ public class User {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
@@ -46,7 +55,8 @@ public class User {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
