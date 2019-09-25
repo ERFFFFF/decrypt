@@ -1,14 +1,18 @@
 package decrypt_java;
 
+import java.sql.SQLException;
+
 public class MainEntry {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		//CLcad bdd = new CLcad();
 		CLmapTB_LOG obj1 = new CLmapTB_LOG();
 		
 		CLcad ob = new CLcad();
 		ob.m_getRows();
+		
+		obj1.m_select();
 		//CLcad select = new CLcad();
 		//select.m_getRows(requete);
 		

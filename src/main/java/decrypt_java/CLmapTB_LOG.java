@@ -1,5 +1,7 @@
 package decrypt_java;
 
+import java.sql.SQLException;
+
 public class CLmapTB_LOG {
 	private int id;
 	private String username;
@@ -40,11 +42,11 @@ public class CLmapTB_LOG {
 	
 	public String m_select()
 	{
-		setRq_sql("select * from log");
+		setRq_sql("SELECT * FROM log WHERE ? = 'root' AND ? = 'root'");
 		return rq_sql;
 	}
 	
-	public void m_insert(String requete)
+	public void m_insert(String requete) throws ClassNotFoundException, SQLException
 	{
 		CLcad insert = new CLcad();
 		insert.m_actionRows(requete);

@@ -17,43 +17,39 @@ public class CLcad {
 	private ResultSet rs;
 	private int rslt;
 	
-	public CLcad()
+	public CLcad() throws SQLException, ClassNotFoundException
 	{
-		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
-		} 
-		catch (ClassNotFoundException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
-		} 
-		try {
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet_decrypt?serverTimezone=UTC", "root", "test123*");
-		}
-		catch (Exception exc) {
-			// TODO: handle exception
-			exc.printStackTrace();
-		}
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		this.connectionUrl = "jdbc:mysql://localhost:3306/projet_decrypt?serverTimezone=UTC";
+		this.login = "root";
+		this.psw = "test123*";
+		this.con = DriverManager.getConnection(connectionUrl, login, psw);
 	}
 	
-	public void m_getRows()
+	public ResultSet m_getRows()
 	{
 		try {
+			CLmapTB_LOG stmtselect = new CLmapTB_LOG();
 			
-			PreparedStatement user = con.prepareStatement("SELECT * FROM log WHERE username = ? AND password = ?");
+			PreparedStatement user = con.prepareStatement(stmtselect.m_select());
 			
-			user.setString(1, "gamerz");
-			user.setString(2, "kek123");
+			//user.setString(1, "log");
+			user.setString(1, "username");
+			//user.setString(1, "root");
+			user.setString(2, "password");
+		//	user.setString(2, "root");
 			
-			ResultSet resultats = user.executeQuery();
+			ResultSet rs = user.executeQuery();
 			
-			while (resultats.next()) {
-				System.out.println(resultats.getString("username") + ", " + resultats.getString("password"));
+			while (rs.next()) {
+				System.out.println(rs.getString("username") + ", " + rs.getString("password"));
 			}
 		}
 		catch (Exception exc) {
 			// TODO: handle exception
 			exc.printStackTrace();
 		}
+		return rs;
 	}
 	public void m_actionRows(String requete)
 	{
