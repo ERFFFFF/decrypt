@@ -1,17 +1,28 @@
 package decrypt_java;
 
+import decrypt_java.model.Dictionary;
+import decrypt_java.model.User;
+import decrypt_java.service.DictionaryService;
+import decrypt_java.service.UserService;
+
 public class MainEntry {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//CLcad bdd = new CLcad();
-		CLmapTB_LOG obj1 = new CLmapTB_LOG();
-				
+	
+
+		UserService userService = new UserService();
+		
+		DictionaryService  dictionaryService = new DictionaryService();
+
+		if (userService.login("test", "ttt") instanceof User) {
+			
+			System.out.println("conncté");
+		}
 		
 		
-		//obj1.m_insert("INSERT INTO log (`id`,`username`,`password`) VALUES ('1','player3','polette')");
-		//obj1.m_insert("DELETE FROM `log` WHERE `id` = 1");
-		obj1.m_select("select * from log");
+		if (dictionaryService.findWord("pilote") instanceof Dictionary) {
+			System.out.println("bon mot");
+		}
 	}
 
 }

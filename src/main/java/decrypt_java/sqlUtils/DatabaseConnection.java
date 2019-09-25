@@ -1,4 +1,4 @@
-package decrypt_java;
+package decrypt_java.sqlUtils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,13 +6,11 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-	private DatabaseConnection instance;
 	private Connection Connectioninstance;
 
-	private Connection connection;
 
-	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/projet_seminaire";
+	private static String driver = "com.mysql.cj.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost:3306/projet_seminaire?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 	private static String password = "root";
 	private static String user = "root";
 
@@ -49,27 +47,7 @@ public class DatabaseConnection {
 
 	private static DatabaseConnection INSTANCE = new DatabaseConnection();
 
-
-//	public  DatabaseConnection getConnectionInstance() {
-//
-//		if (this.instance == null) {
-//
-//			if (this.instance == null) {
-//				this.Connectioninstance = this.getConnection();
-//			}
-//
-//		}
-//
-//		return this.instance;
-//	}
-
 	
-	private void setInstance(DatabaseConnection instance) {
-
-		this.instance = instance;
-
-	}
-
 
 
 	/**

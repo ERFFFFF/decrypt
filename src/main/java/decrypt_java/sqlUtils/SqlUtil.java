@@ -1,4 +1,4 @@
-package decrypt_java;
+package decrypt_java.sqlUtils;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
