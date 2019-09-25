@@ -42,23 +42,6 @@ public class AccesDonnees {
 		return rs;
 	}
 	
-//	public boolean reqDecrypt(String source_path, String destination_path) {
-//		Boolean boo = false;
-//		try {
-//			stmt = con.createStatement();
-//			String sql = "select 1 from log where username='" + login + "' and password='" + mdp + "'";
-//			rs = stmt.executeQuery(sql);
-//			//System.out.println(rs.getString("username"));
-//			if (rs.next()) {
-//				boo = true;
-//			} 
-//		} catch (Exception exc) {
-//			// TODO: handle exception
-//			exc.printStackTrace();
-//		}
-//		return boo;
-//	}
-	
 	public void m_actionRows(String req)
 	{
 		try {

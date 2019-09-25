@@ -15,7 +15,6 @@ public class Decrypt {
 			c2 = key.charAt(ii);
 			c3 = (char) (c1 ^ c2);
 			sb1.append(c3);
-			ii++;
 			if (ii == key.length()) {
 				ii = 0;
 			}

@@ -25,6 +25,8 @@ public class CLctrlCrypt {
 
 		// crypte le message
 		String message = Decrypt.decrypte(reponse, KEY);
+		System.out.println("decrypt : "+ message);
+		System.out.println("response : " + reponse);
 		
 		//Verifie le mot dans le dictionnaire
 		Boolean boo = false;
