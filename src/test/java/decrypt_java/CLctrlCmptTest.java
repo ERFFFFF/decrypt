@@ -2,6 +2,7 @@ package decrypt_java;
 
 import org.junit.Test;
 
+import Controleur.CLctrlCmpt;
 import junit.framework.TestCase;
 
 public class CLctrlCmptTest extends TestCase {
