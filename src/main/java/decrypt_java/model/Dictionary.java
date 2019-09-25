@@ -46,7 +46,5 @@ public class Dictionary  {
 	public void setWord(String word) {
 		this.word = word;
 	}
-
-	
 	
 }
