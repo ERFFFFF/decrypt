@@ -31,38 +31,31 @@ public class CLctrlCmpt {
 		}
 	}
 
-	public ResultSet m_getRows(String requete) {
-		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(requete);
-
-			while (rs.next()) {
-				System.out.println(
-						rs.getString("id") + ", " + rs.getString("username") + ", " + rs.getString("password"));
-			}
-		} catch (Exception exc) {
-			// TODO: handle exception
-			exc.printStackTrace();
-		}
-		return rs;
-	}
-
 	public boolean reqIdentification(String login, String mdp) {
 		Boolean boo = false;
 		try {
 			stmt = con.createStatement();
 			String sql = "select 1 from log where username='" + login + "' and password='" + mdp + "'";
-			System.out.println(sql);
 			rs = stmt.executeQuery(sql);
 			//System.out.println(rs.getString("username"));
 			if (rs.next()) {
 				boo = true;
-				System.out.println("kokok");
 			} 
 		} catch (Exception exc) {
 			// TODO: handle exception
 			exc.printStackTrace();
 		}
 		return boo;
+	}
+	
+	public void m_actionRows(String login, String mdp)
+	{
+		try {
+			stmt = con.createStatement();
+			rslt = stmt.executeUpdate("INSERT INTO log (`username`,`password`) VALUES ('"+login+"','"+mdp+"')");
+		}
+		catch (Exception exc) {
+			exc.getMessage();
+		}
 	}
 }

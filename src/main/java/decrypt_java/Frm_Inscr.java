@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 
 
-public class frm_Auth extends JFrame implements ActionListener {
+public class Frm_Inscr extends JFrame implements ActionListener {
 
 	// Content pane principal
 	private JPanel pan = new JPanel();
@@ -38,12 +38,12 @@ public class frm_Auth extends JFrame implements ActionListener {
 	private JLabel mdp = new JLabel("Mot de passe :");
 	private final JTextField fieldMdp = new JTextField();
 	private final JButton btnValider = new JButton("Valider");
-	private final JLabel lblAuthentification = new JLabel("Authentification");
+	private final JLabel lblAuthentification = new JLabel("Creer votre compte");
 	private final JLabel lblResult = new JLabel("");
-	private final JButton btnCrerCompte = new JButton("Créer Compte");
+	private final JButton btnRetour = new JButton("Retour");
 
-	public frm_Auth() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(frm_Auth.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
+	public Frm_Inscr() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Frm_Inscr.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
 
 		// Parametres de la fenetre
 		this.setResizable(false);
@@ -78,36 +78,32 @@ public class frm_Auth extends JFrame implements ActionListener {
 		fieldMdp.setColumns(10);
 		
 		pan.add(fieldMdp, "cell 2 3");
-		
-		pan.add(btnCrerCompte, "cell 4 3");
 		pan.add(lblResult, "cell 2 4");
 		pan.add(btnValider, "cell 2 5");
+		pan.add(btnRetour, "cell 4 0");
 		btnValider.addActionListener(this);
-		btnCrerCompte.addActionListener(this);
+		btnRetour.addActionListener(this);
 		this.setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnValider) {
 			// Lorsque l'on clique sur le bouton Valider
-			String message;
-			try {
+			if (!fieldId.getText().isEmpty() || !fieldMdp.getText().isEmpty()) {
 				CLctrlCmpt ctrl = new CLctrlCmpt();
-				if (ctrl.reqIdentification(fieldId.getText(), fieldMdp.getText())) {
-					CHEMIN_FICHIER = frm_decrypt.getfilePath();
-					message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
-					String messageCrypt = CLctrlCrypt.crypter(message, KEY);
-					lblResult.setText(message);
-					String chemin_save = frm_decrypt.getfilePathSave();
-					CLctrlCrypt.ecrireFichierSimple(chemin_save, messageCrypt);
-				}else {
-					lblResult.setText("Identifiant ou mdp incorrect");
-				}
+				ctrl.m_actionRows(fieldId.getText(), fieldMdp.getText());
+				frm_Auth insc = new frm_Auth();
+				this.dispose();
+			}else {
+				lblResult.setText("MDP ou login invalide");
+			}
+			try {
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if (arg0.getSource() == btnCrerCompte) {
-			Frm_Inscr insc = new Frm_Inscr();
+		}else if(arg0.getSource() == btnRetour) {
+			frm_Auth auth = new frm_Auth();
 			this.dispose();
 		}
 
