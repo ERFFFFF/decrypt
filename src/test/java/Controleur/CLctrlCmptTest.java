@@ -1,11 +1,11 @@
-package decrypt_java;
+package Controleur;
+
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Controleur.CLctrlCmpt;
-import junit.framework.TestCase;
+public class CLctrlCmptTest {
 
-public class CLctrlCmptTest extends TestCase {
 	@Test
 	public void testReqIdentification()
 	{
@@ -24,4 +24,5 @@ public class CLctrlCmptTest extends TestCase {
 		assertFalse(ctrl.authentifier(login, mdp));
 		
 	}
+
 }
