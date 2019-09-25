@@ -94,7 +94,7 @@ public class Frm_Inscr extends JFrame implements ActionListener {
 			// Lorsque l'on clique sur le bouton Valider
 			if (!fieldId.getText().isEmpty() || !fieldMdp.getText().isEmpty()) {
 				CLctrlCmpt ctrl = new CLctrlCmpt();
-				ctrl.m_actionRows(fieldId.getText(), fieldMdp.getText());
+				ctrl.creerCompte(fieldId.getText(), fieldMdp.getText());
 				frm_Auth insc = new frm_Auth();
 				this.dispose();
 			}else {

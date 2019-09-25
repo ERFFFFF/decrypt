@@ -34,7 +34,6 @@ public class frm_Auth extends JFrame implements ActionListener {
 	private JPanel pan = new JPanel();
 
 	// Chemin d'acces au fichier 
-	private static String CHEMIN_FICHIER = null;
 	private static String KEY = "key";
 
 	private JTextField fieldId;
@@ -97,13 +96,17 @@ public class frm_Auth extends JFrame implements ActionListener {
 			String message;
 			try {
 				CLctrlCmpt ctrl = new CLctrlCmpt();
-				if (ctrl.reqIdentification(fieldId.getText(), fieldMdp.getText())) {
-					CHEMIN_FICHIER = frm_decrypt.getfilePath();
-					message = CLctrlCrypt.lireFichierSimple(CHEMIN_FICHIER);
-					String messageCrypt = CLctrlCrypt.crypter(message, KEY);
-					lblResult.setText(message);
-					String chemin_save = frm_decrypt.getfilePathSave();
-					CLctrlCrypt.ecrireFichierSimple(chemin_save, messageCrypt);
+				CLctrlCrypt ctrlCrypt = new CLctrlCrypt();
+				if (ctrl.authentifier(fieldId.getText(), fieldMdp.getText())) {
+	
+					String source_path = frm_decrypt.getfilePath();
+					String destination_path = frm_decrypt.getfilePathSave();
+					Boolean result = ctrlCrypt.pcs_decrypter(source_path, destination_path);
+					if (result) {
+						lblResult.setText("Mot correctement décrypté");
+					}else {
+						lblResult.setText("Le mot n'a pas été correctement décrypté");
+					}
 				}else {
 					lblResult.setText("Identifiant ou mdp incorrect");
 				}

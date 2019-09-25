@@ -1,4 +1,6 @@
-package Vue;
+package main;
+
+import Vue.frm_Auth;
 
 public class main {
 

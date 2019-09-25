@@ -12,7 +12,7 @@ public class CLctrlCmptTest extends TestCase {
 		String mdp = "kek123";
 		String login = "gamerz";
 		CLctrlCmpt ctrl = new CLctrlCmpt();
-		assertTrue(ctrl.reqIdentification(login, mdp));
+		assertTrue(ctrl.authentifier(login, mdp));
 		
 	}
 	@Test
@@ -21,7 +21,7 @@ public class CLctrlCmptTest extends TestCase {
 		String mdp = "kek123";
 		String login = "ddd";
 		CLctrlCmpt ctrl = new CLctrlCmpt();
-		assertFalse(ctrl.reqIdentification(login, mdp));
+		assertFalse(ctrl.authentifier(login, mdp));
 		
 	}
 }
