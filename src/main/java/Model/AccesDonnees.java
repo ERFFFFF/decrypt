@@ -17,7 +17,7 @@ public class AccesDonnees {
 	private static AccesDonnees instance;
 	
 	public static AccesDonnees getInstance() {
-		if (instance != null) {
+		if (instance == null) {
 			setInstance(new AccesDonnees());
 		}
 		return instance;
