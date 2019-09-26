@@ -34,7 +34,6 @@ public class frm_Auth extends JFrame implements ActionListener {
 	private JPanel pan = new JPanel();
 
 	// Chemin d'acces au fichier 
-	private static String KEY = "key";
 
 	private JTextField fieldId;
 	private JLabel identifiant = new JLabel("Identifiant :");

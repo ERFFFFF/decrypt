@@ -11,7 +11,7 @@ import Model.AccesDonnees;
 public class CLctrlCmpt {
 	private ResultSet rs;
 
-	public boolean authentifier(String login, String mdp) {
+	public boolean authentifier(String login, String mdp) throws SQLException {
 		Boolean boo = false;
 		AccesDonnees model = new AccesDonnees();
 		rs = model.getRows("select 1 from log where username='" + login + "' and password='" + mdp + "'");

@@ -3,6 +3,7 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AccesDonnees {
@@ -30,7 +31,7 @@ public class AccesDonnees {
 		}
 	}
 
-	public ResultSet getRows(String req) {
+	public ResultSet getRows(String req) throws SQLException {
 		try {
 			stmt = con.createStatement();
 			String sql = req;
