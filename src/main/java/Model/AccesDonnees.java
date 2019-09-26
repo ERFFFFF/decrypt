@@ -14,8 +14,19 @@ public class AccesDonnees {
 	private Statement stmt;
 	private ResultSet rs;
 	private int rslt;
+	private static AccesDonnees instance;
+	
+	public static AccesDonnees getInstance() {
+		if (instance != null) {
+			setInstance(new AccesDonnees());
+		}
+		return instance;
+	}
 
-	public AccesDonnees() {
+	private static void setInstance (final AccesDonnees instance) {
+		AccesDonnees.instance = instance;
+	}
+	private AccesDonnees() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {

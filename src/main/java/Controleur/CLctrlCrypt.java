@@ -16,7 +16,7 @@ import Model.Decrypt;
 import Model.Files;
 
 public class CLctrlCrypt {
-	private final static String KEY = "azertyui";
+	private final static String KEY = "awqpmndf";
 	private ResultSet rs;
 
 	public Boolean pcs_decrypter(String source_path, String destination_path) throws IOException, SQLException {
@@ -45,7 +45,7 @@ public class CLctrlCrypt {
 							System.out.println("message decrypté : "+ message);			
 							System.out.println("avec la clé : "+KEY + (char) bytes1 + (char) bytes2 + (char) bytes3 + (char) bytes4);
 							//Verifie le mot dans le dictionnaire
-							AccesDonnees model = new AccesDonnees();
+							AccesDonnees model = AccesDonnees.getInstance();
 							System.out.println("mot testé av la bdd : "+maListeDeMot[i]);
 							rs = model.getRows("select 1 from dictionnaire where mot='" + maListeDeMot[i].replaceAll("'","''") + "'");
 							try {

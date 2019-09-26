@@ -13,7 +13,7 @@ public class CLctrlCmpt {
 
 	public boolean authentifier(String login, String mdp) throws SQLException {
 		Boolean boo = false;
-		AccesDonnees model = new AccesDonnees();
+		AccesDonnees model = AccesDonnees.getInstance();
 		rs = model.getRows("select 1 from log where username='" + login + "' and password='" + mdp + "'");
 		try {
 			if (rs.next()) {
@@ -28,7 +28,7 @@ public class CLctrlCmpt {
 	}
 
 	public void creerCompte(String login, String mdp) {
-		AccesDonnees model = new AccesDonnees();
+		AccesDonnees model = AccesDonnees.getInstance();
 		model.m_actionRows("INSERT INTO log (`username`,`password`) VALUES ('" + login + "','" + mdp + "')");
 	}
 }
