@@ -27,8 +27,10 @@ public class CLctrlCrypt {
 		//Verifie le mot dans le dictionnaire
 		
 		
-		if (!(dictionaryService.findWord(message) instanceof Dictionary)) return false;
+		if (!(dictionaryService.findWord(reponse) instanceof Dictionary)) return false;
 		
+		if (!(dictionaryService.findWord(reponse) instanceof Dictionary)) System.out.println("mot inconnu");
+
 		// Creer le fichier
 		Files.setData(destination_path, message);
 		
