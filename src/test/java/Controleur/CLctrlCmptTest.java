@@ -1,21 +1,19 @@
 package Controleur;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+import junit.framework.TestCase;
 
-public class CLctrlCmptTest {
+public class CLctrlCmptTest extends TestCase {
 
-	@Test
 	public void testReqIdentification()
 	{
-		String mdp = "kek123";
-		String login = "gamerz";
+		String login = "test";
+		String mdp = "ttt";
 		CLctrlCmpt ctrl = new CLctrlCmpt();
 		assertTrue(ctrl.authentifier(login, mdp));
 		
 	}
-	@Test
+
 	public void test2ReqIdentification()
 	{
 		String mdp = "kek123";

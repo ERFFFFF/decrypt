@@ -22,6 +22,14 @@ public class UserDaoImplementationTest {
 		userList = new ArrayList<User>();
 	}
 
+	public ArrayList<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(ArrayList<User> userList) {
+		this.userList = userList;
+	}
+
 	public User selectRow(String username, String password) {
 
 		for (User user : userList) {

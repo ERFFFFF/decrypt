@@ -12,27 +12,23 @@ public class CLctrlCrypt {
 	private final static String KEY = "key";
 	private ResultSet rs;
 
-	public Boolean pcs_decrypter(String source_path, String destination_path) throws IOException {
-		DictionaryService  dictionaryService = new DictionaryService();
+	public boolean pcs_decrypter(String source_path, String destination_path) throws IOException {
+		DictionaryService dictionaryService = new DictionaryService();
 
-		
 		// lire fichier
 		String reponse = Files.getData(source_path);
 
 		// crypte le message
 		String message = Decrypt.decrypte(reponse, KEY);
-		System.out.println("decrypt : "+ message);
+		System.out.println("decrypt : " + message);
 		System.out.println("response : " + reponse);
-		
-		//Verifie le mot dans le dictionnaire
-		
-		
-		if (!(dictionaryService.findWord(message) instanceof Dictionary)) return false;
-		
+
+		// Verifie le mot dans le dictionnaire
+
 		// Creer le fichier
-		Files.setData(destination_path, message);
-		
-		return true;
+		if ((dictionaryService.findWord(message) instanceof Dictionary)) Files.setData(destination_path, message);
+
+		return (dictionaryService.findWord(message) instanceof Dictionary) ? true : false;
 
 	}
 
