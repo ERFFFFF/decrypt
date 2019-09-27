@@ -1,12 +1,13 @@
 package Model;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
 
-public class DecryptTest {
 
-	@Test
+import junit.framework.TestCase;
+
+
+public class DecryptTest extends TestCase {
+
 	public void test() {
 		String message = "mot";
 		String key = "key";

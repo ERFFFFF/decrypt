@@ -1,19 +1,12 @@
 package Controleur;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import Model.AccesDonnees;
 import Model.Decrypt;
 import Model.Files;
+import decrypt_java.model.Dictionary;
+import decrypt_java.service.DictionaryService;
 
 public class CLctrlCrypt {
 	private final static String KEY = "awqpmndf";
@@ -47,15 +40,14 @@ public class CLctrlCrypt {
 							//Verifie le mot dans le dictionnaire
 							AccesDonnees model = AccesDonnees.getInstance();
 							System.out.println("mot testé av la bdd : "+maListeDeMot[i]);
+						
 							rs = model.getRows("select 1 from dictionnaire where mot='" + maListeDeMot[i].replaceAll("'","''") + "'");
 							try {
 								if (rs.next()) {
-									System.out.println("succes the key is : " + KEY + (char) bytes1 + (char) bytes2 + (char) bytes3 + (char) bytes4);
-									System.out.println("Mot succes : "+ maListeDeMot[i]);
+									
 									i++;
 									if (i == 2) {
 										boo = true;
-										System.out.println("Mot succes : "+ maListeDeMot[i]);
 									}
 									
 								}
