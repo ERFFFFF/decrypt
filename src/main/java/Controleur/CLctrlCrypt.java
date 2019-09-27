@@ -19,6 +19,14 @@ public class CLctrlCrypt {
 	private final static String KEY = "awqpmndf";
 	private ResultSet rs;
 
+	/**
+	 * Decrypte en cherchant la bonne cle de cryptage et enregiste le mot dans un fichier
+	 * @param source_path
+	 * @param destination_path
+	 * @return
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public Boolean pcs_decrypter(String source_path, String destination_path) throws IOException, SQLException {
 		Boolean boo = false;
 		// lire fichier

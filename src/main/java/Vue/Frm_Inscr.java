@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -93,7 +94,12 @@ public class Frm_Inscr extends JFrame implements ActionListener {
 			// Lorsque l'on clique sur le bouton Valider
 			if (!fieldId.getText().isEmpty() || !fieldMdp.getText().isEmpty()) {
 				CLctrlCmpt ctrl = new CLctrlCmpt();
-				ctrl.creerCompte(fieldId.getText(), fieldMdp.getText());
+				try {
+					ctrl.creerCompte(fieldId.getText(), fieldMdp.getText());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				frm_Auth insc = new frm_Auth();
 				this.dispose();
 			}else {

@@ -1,0 +1,1 @@
+En mathematiques, le logarithme de base b d'un nombre reel strictement positif est la puissance a laquelle il faut elever la base b pour obtenir ce nombre. Par exemple, le logarithme de 1000 en base 10 est 3, car 1000 = 10ﾙ10ﾉ10 = 103. Le logarithme de x en base b est note logb(x). Ainsi log10(1000) = 3. 

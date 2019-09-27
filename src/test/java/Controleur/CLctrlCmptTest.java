@@ -11,8 +11,8 @@ public class CLctrlCmptTest {
 	@Test
 	public void testReqIdentification() throws SQLException
 	{
-		String mdp = "kek123";
-		String login = "gamerz";
+		String mdp = "root";
+		String login = "root";
 		CLctrlCmpt ctrl = new CLctrlCmpt();
 		assertTrue(ctrl.authentifier(login, mdp));
 		

@@ -11,6 +11,13 @@ import Model.AccesDonnees;
 public class CLctrlCmpt {
 	private ResultSet rs;
 
+	/**
+	 * comparaison des identifiants en entrée avec les identifiants dans la BDD
+	 * @param login
+	 * @param mdp
+	 * @return
+	 * @throws SQLException
+	 */
 	public boolean authentifier(String login, String mdp) throws SQLException {
 		Boolean boo = false;
 		AccesDonnees model = AccesDonnees.getInstance();
@@ -27,7 +34,13 @@ public class CLctrlCmpt {
 		return boo;
 	}
 
-	public void creerCompte(String login, String mdp) {
+	/**
+	 * Ajoute les identifiants en entrée dans la BDD
+	 * @param login
+	 * @param mdp
+	 * @throws SQLException
+	 */
+	public void creerCompte(String login, String mdp) throws SQLException {
 		AccesDonnees model = AccesDonnees.getInstance();
 		model.m_actionRows("INSERT INTO log (`username`,`password`) VALUES ('" + login + "','" + mdp + "')");
 	}

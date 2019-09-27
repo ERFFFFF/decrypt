@@ -2,6 +2,12 @@ package Model;
 
 public class Decrypt {
 	
+	/**
+	 * Decryptage d'un message en XOR
+	 * @param inputString
+	 * @param key
+	 * @return
+	 */
 	public static String decrypte(String inputString, String key) {
 		StringBuilder sb1;
 		char c1;
