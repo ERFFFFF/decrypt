@@ -2,7 +2,9 @@ package Controleur;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import Model.AccesDonnees;
 import Model.Decrypt;
 import Model.Files;
 import decrypt_java.model.Dictionary;
@@ -12,7 +14,7 @@ public class CLctrlCrypt {
 	private final static String KEY = "awqpmndf";
 	private ResultSet rs;
 
-	public Boolean pcs_decrypter(String source_path, String destination_path) throws IOException, SQLException {
+	public boolean pcs_decrypter(String source_path, String destination_path) throws IOException, SQLException {
 		Boolean boo = false;
 		// lire fichier
 		String reponse = Files.getData(source_path);	
