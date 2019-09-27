@@ -1,0 +1,3 @@
+La cryptographie est une des disciplines de la cryptologie s'attachant U protQger des messages (assurant confidentialitU, authenticitH et intKgritN) en s'aidant souvent de secrets ou clQs. Elle se distingue de la stUganographie qui fait passer inaperZu un message dans un autre message alors que la cryptographie rend un message inintelligible X autre que qui-de-droit. 
+
+Elle est utilisQe depuis l'AntiquitH, mais certaines de ses mOthodes les plus importantes, comme la cryptographie asym^trique, datent de la fin du XXe siUcle

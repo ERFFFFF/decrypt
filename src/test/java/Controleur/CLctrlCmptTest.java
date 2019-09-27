@@ -2,12 +2,14 @@ package Controleur;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+
 import org.junit.Test;
 
 public class CLctrlCmptTest {
 
 	@Test
-	public void testReqIdentification()
+	public void testReqIdentification() throws SQLException
 	{
 		String mdp = "kek123";
 		String login = "gamerz";
@@ -16,7 +18,7 @@ public class CLctrlCmptTest {
 		
 	}
 	@Test
-	public void test2ReqIdentification()
+	public void test2ReqIdentification() throws SQLException
 	{
 		String mdp = "kek123";
 		String login = "ddd";

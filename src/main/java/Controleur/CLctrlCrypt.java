@@ -26,9 +26,9 @@ public class CLctrlCrypt {
 		System.out.println("response : " + reponse);
 		int i = 0;
 		
-		for (int bytes1=97; bytes1<123; bytes1++)
+		for (int bytes1=103; bytes1<123; bytes1++)
 		{
-			for (int bytes2=97; bytes2<123; bytes2++)
+			for (int bytes2=116; bytes2<123; bytes2++)
 			{
 				for (int bytes3=97; bytes3<123; bytes3++)
 				{
