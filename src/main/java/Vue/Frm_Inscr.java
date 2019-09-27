@@ -34,7 +34,6 @@ public class Frm_Inscr extends JFrame implements ActionListener {
 
 	// Chemin d'acces au fichier 
 	private static String CHEMIN_FICHIER = null;
-	private static String KEY = "key";
 
 	private JTextField fieldId;
 	private JLabel identifiant = new JLabel("Identifiant :");
